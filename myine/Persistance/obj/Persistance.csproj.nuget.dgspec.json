@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\netReact\\Persistance\\Persistance.csproj": {}
+    "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj": {}
   },
   "projects": {
-    "C:\\code\\netReact\\Domain\\Domain.csproj": {
+    "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\code\\netReact\\Domain\\Domain.csproj",
+        "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\Domain\\obj\\",
+        "outputPath": "C:\\code\\netReact\\myine\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -64,14 +64,14 @@
         }
       }
     },
-    "C:\\code\\netReact\\Persistance\\Persistance.csproj": {
+    "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\Persistance\\Persistance.csproj",
+        "projectUniqueName": "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj",
         "projectName": "Persistance",
-        "projectPath": "C:\\code\\netReact\\Persistance\\Persistance.csproj",
+        "projectPath": "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\Persistance\\obj\\",
+        "outputPath": "C:\\code\\netReact\\myine\\Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -92,8 +92,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\code\\netReact\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\code\\netReact\\Domain\\Domain.csproj"
+              "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj"
               }
             }
           }

@@ -6,3 +6,11 @@ C:\code\netReact\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
 C:\code\netReact\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
 C:\code\netReact\Domain\obj\Debug\netstandard2.0\Domain.dll
 C:\code\netReact\Domain\obj\Debug\netstandard2.0\Domain.pdb
+C:\code\netReact\myine\Domain\bin\Debug\netstandard2.0\Domain.deps.json
+C:\code\netReact\myine\Domain\bin\Debug\netstandard2.0\Domain.dll
+C:\code\netReact\myine\Domain\bin\Debug\netstandard2.0\Domain.pdb
+C:\code\netReact\myine\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
+C:\code\netReact\myine\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
+C:\code\netReact\myine\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
+C:\code\netReact\myine\Domain\obj\Debug\netstandard2.0\Domain.dll
+C:\code\netReact\myine\Domain\obj\Debug\netstandard2.0\Domain.pdb

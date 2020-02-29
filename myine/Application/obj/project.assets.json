@@ -221,11 +221,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code\\netReact\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\code\\netReact\\myine\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\code\\netReact\\Application\\Application.csproj",
+      "projectPath": "C:\\code\\netReact\\myine\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-      "outputPath": "C:\\code\\netReact\\Application\\obj\\",
+      "outputPath": "C:\\code\\netReact\\myine\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -246,11 +246,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\code\\netReact\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\code\\netReact\\Domain\\Domain.csproj"
+            "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj"
             },
-            "C:\\code\\netReact\\Persistance\\Persistance.csproj": {
-              "projectPath": "C:\\code\\netReact\\Persistance\\Persistance.csproj"
+            "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj": {
+              "projectPath": "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj"
             }
           }
         }
