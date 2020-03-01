@@ -7,13 +7,13 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "Persistance/1.0.0": {
+      "Persistence/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
           "NETStandard.Library": "2.0.3"
         },
         "runtime": {
-          "Persistance.dll": {}
+          "Persistence.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -30,7 +30,7 @@
     }
   },
   "libraries": {
-    "Persistance/1.0.0": {
+    "Persistence/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

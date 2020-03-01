@@ -35,8 +35,8 @@
               "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj"
               },
-              "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj": {
-                "projectPath": "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj"
+              "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -131,14 +131,14 @@
         }
       }
     },
-    "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj": {
+    "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj",
-        "projectName": "Persistance",
-        "projectPath": "C:\\code\\netReact\\myine\\Persistance\\Persistance.csproj",
+        "projectUniqueName": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\Persistance\\obj\\",
+        "outputPath": "C:\\code\\netReact\\myine\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -174,6 +174,14 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

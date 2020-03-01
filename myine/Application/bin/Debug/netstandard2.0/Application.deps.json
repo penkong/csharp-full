@@ -11,7 +11,7 @@
         "dependencies": {
           "Domain": "1.0.0",
           "NETStandard.Library": "2.0.3",
-          "Persistance": "1.0.0"
+          "Persistence": "1.0.0"
         },
         "runtime": {
           "Application.dll": {}
@@ -28,12 +28,12 @@
           "Domain.dll": {}
         }
       },
-      "Persistance/1.0.0": {
+      "Persistence/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0"
         },
         "runtime": {
-          "Persistance.dll": {}
+          "Persistence.dll": {}
         }
       }
     }
@@ -63,7 +63,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Persistance/1.0.0": {
+    "Persistence/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

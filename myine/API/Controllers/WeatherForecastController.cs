@@ -11,6 +11,7 @@ namespace API.Controllers {
 	[Route ("api/[controller]")]
 	public class WeatherForecastController : ControllerBase {
 
+		#region props
 		private static readonly string[] Summaries = new [] {
 			"Freezing",
 			"Bracing",
@@ -25,6 +26,8 @@ namespace API.Controllers {
 		};
 
 		private readonly ILogger<WeatherForecastController> _logger;
+        #endregion
+
 
 		#region ctor
 		public WeatherForecastController (ILogger<WeatherForecastController> logger) {

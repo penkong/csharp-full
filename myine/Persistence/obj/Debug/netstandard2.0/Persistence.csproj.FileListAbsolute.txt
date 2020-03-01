@@ -1,0 +1,11 @@
+C:\code\netReact\myine\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
+C:\code\netReact\myine\Persistence\bin\Debug\netstandard2.0\Persistence.dll
+C:\code\netReact\myine\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
+C:\code\netReact\myine\Persistence\bin\Debug\netstandard2.0\Domain.dll
+C:\code\netReact\myine\Persistence\bin\Debug\netstandard2.0\Domain.pdb
+C:\code\netReact\myine\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
+C:\code\netReact\myine\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
+C:\code\netReact\myine\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
+C:\code\netReact\myine\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
+C:\code\netReact\myine\Persistence\obj\Debug\netstandard2.0\Persistence.dll
+C:\code\netReact\myine\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
