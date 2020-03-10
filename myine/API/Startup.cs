@@ -24,11 +24,14 @@ namespace API {
             Configuration = configuration;
         }
 
-        // dependency injection container
+        // is our dependency injection container (the way utilize other classes in other part of our app)
+        // and anything we add to services will be available in other part of our app.
         // This method gets called by the runtime. Use this method to add services to the container.
+        // 
         public void ConfigureServices (IServiceCollection services) {
 
             services.AddDbContext<DataContext> (opt => {
+                //. option action
                 opt.UseSqlite (Configuration.GetConnectionString ("DefaultConnection"));
             });
 
@@ -37,12 +40,12 @@ namespace API {
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
-            if (env.IsDevelopment ()) {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage ();
             } else {
                 // app.UseExceptionHandler("/Error");
                 // add middleware add transport security
-                //  web server declare browser must be use https
+                //  web server declare browser must be use https 
                 // app.UseHsts();
             }
 

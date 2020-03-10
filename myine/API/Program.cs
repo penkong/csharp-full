@@ -37,6 +37,8 @@ namespace API
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            // also it use appsettings.json for development or production also can it be user secrets. 
+            // createDefaultBuilder use app config provider startup class
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

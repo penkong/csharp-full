@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Persistence;
 
 namespace API.Controllers {
 
@@ -26,12 +29,15 @@ namespace API.Controllers {
 		};
 
 		private readonly ILogger<WeatherForecastController> _logger;
-        #endregion
-
+		private readonly DataContext _context;
+		#endregion
 
 		#region ctor
-		public WeatherForecastController (ILogger<WeatherForecastController> logger) {
-			_logger = logger;
+		// public WeatherForecastController (ILogger<WeatherForecastController> logger) {
+		// 	_logger = logger;
+		// }
+		public WeatherForecastController (DataContext context) {
+			_context = context;
 		}
 
 		#endregion
@@ -39,23 +45,29 @@ namespace API.Controllers {
 		#region  APIController
 		// get api/WeatherForecast
 		[HttpGet]
-		public IEnumerable<WeatherForecast> Get () {
+		public async Task<ActionResult<IEnumerable<Value>>> Get () {
+			// public IEnumerable<WeatherForecast> Get () {
 
-			var rng = new Random ();
+			// var rng = new Random ();
 
-			return Enumerable.Range (1, 5).Select (index => new WeatherForecast {
-					Date = DateTime.Now.AddDays (index),
-						TemperatureC = rng.Next (-20, 55),
-						Summary = Summaries[rng.Next (Summaries.Length)]
-				})
-				.ToArray ();
+			// return Enumerable.Range (1, 5).Select (index => new WeatherForecast {
+			//         Date = DateTime.Now.AddDays (index),
+			//             TemperatureC = rng.Next (-20, 55),
+			//             Summary = Summaries[rng.Next (Summaries.Length)]
+			//     })
+			//     .ToArray ();
+			// toListAsync and many other come from ef;
+			var values = await _context.Values.ToListAsync ();
+			return Ok (values);
 		}
 
+		[HttpGet ("{id:int}")]
+		// public ActionResult<string> Get (int id)
+		public async Task<ActionResult<Value>> Get (int id) {
 
-		[HttpGet ("{id}")]
-		public ActionResult<string> Get (int id) {
-
-			return "values";
+			// return "values";
+			var values = await _context.Values.FindAsync (id);
+			return Ok (values);
 		}
 
 		#endregion
