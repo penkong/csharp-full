@@ -1,4 +1,7 @@
-API/bin/*
-Application/bin/*
-Domain/bin/*
-Persistance/bin/*
+bin
+obj
+.vscode
+appsettings.json
+appsettings.Development.json
+*.db
+
