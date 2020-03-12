@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Persistence;
 
 namespace API {
@@ -34,13 +34,20 @@ namespace API {
                 //. option action
                 opt.UseSqlite (Configuration.GetConnectionString ("DefaultConnection"));
             });
-
+            services.AddCors (opt => {
+                // create specific cors policy here.
+                // name it  and policy config
+                opt.AddPolicy ("CorsPolicy", policy => {
+                    policy.AllowAnyHeader ().AllowAnyMethod ().WithOrigins ("http://localhost:3000");
+                });
+                // after this we need to add  to configure as middleware
+            });
             services.AddControllers ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
-            if (env.IsDevelopment()) {
+            if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
             } else {
                 // app.UseExceptionHandler("/Error");
@@ -50,7 +57,7 @@ namespace API {
             }
 
             // app.UseHttpsRedirection();
-
+            app.UseCors ("CorsPolicy");
             app.UseRouting ();
 
             app.UseAuthorization ();
