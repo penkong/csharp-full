@@ -85,3 +85,5 @@ C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.
 C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\MediatR.dll
+C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll

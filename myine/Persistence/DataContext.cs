@@ -9,7 +9,8 @@ namespace Persistence {
 
         // this name going to be name of table in dbs.
         public DbSet<Value> Values { get; set; }
-
+        public DbSet<Activity> Activites { get; set; }
+        // u create migration with cli remember.
         public DataContext (DbContextOptions<DataContext> options) : base (options) { }
 
         // this is for seeding
