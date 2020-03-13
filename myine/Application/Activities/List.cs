@@ -28,7 +28,7 @@ namespace Application.Activities
             // in Handler we need access to datacontext
             public async Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var activites = await _context.Activites.ToListAsync();
+                var activites = await _context.Activites.ToListAsync(cancellationToken);
                 return activites;
             }
         }

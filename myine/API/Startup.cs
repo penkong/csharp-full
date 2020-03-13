@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Activities;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,6 +44,8 @@ namespace API {
                 });
                 // after this we need to add  to configure as middleware
             });
+            // we have lots of Handler but we need to tell it one
+            services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddControllers ();
         }
 
