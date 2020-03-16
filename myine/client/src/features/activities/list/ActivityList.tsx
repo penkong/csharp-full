@@ -5,13 +5,20 @@ import { IActivity } from "../../../app/models/activity";
 interface IProps {
   activities: IActivity[];
   handleSelectedActivity: (id: string) => void;
-  handleDeleteAcitivty: (id: string) => void;
+  submitting: boolean;
+  handleDeleteAcitivty: (
+    event: React.SyntheticEvent<HTMLButtonElement>,
+    id: string
+  ) => void;
+  targeted: string;
 }
 
 const ActivityList: React.FC<IProps> = ({
   activities,
   handleSelectedActivity,
-  handleDeleteAcitivty
+  handleDeleteAcitivty,
+  submitting,
+  targeted
 }) => {
   return (
     <Segment clearing>
@@ -36,7 +43,9 @@ const ActivityList: React.FC<IProps> = ({
                     color="blue"
                   />
                   <Button
-                    onClick={() => handleDeleteAcitivty(id)}
+                    name={id}
+                    loading={targeted === id && submitting}
+                    onClick={e => handleDeleteAcitivty(e, id)}
                     floated="right"
                     content="Delete"
                     color="red"
