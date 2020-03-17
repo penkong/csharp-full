@@ -1,10 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import { Container } from "semantic-ui-react";
 import NavBar from "../../features/nav/NavBar";
 import "./styles.css";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
-import Loading from "./Loading";
-import ActivityStore from "../stores/activityStore";
 import { observer } from "mobx-react-lite";
 import { Route, Switch, withRouter } from "react-router-dom";
 import HomePage from "../../features/home/HomePage";
@@ -13,15 +11,6 @@ import ActivityDetails from "../../features/activities/details/ActivityDetails";
 import { RouteComponentProps } from "react-router";
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
-  const activityStore = useContext(ActivityStore);
-
-  useEffect(() => {
-    activityStore.loadActivities();
-  }, [activityStore]);
-
-  if (activityStore.loadingInitial)
-    return <Loading content="loading activities ..." />;
-
   return (
     <>
       <Route exact path="/" component={HomePage} />

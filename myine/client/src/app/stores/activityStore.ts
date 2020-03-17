@@ -10,7 +10,6 @@ class ActivityStore {
   @observable activityRegistry = new Map();
   @observable loadingInitial = false;
   @observable activity: IActivity | null = null;
-  @observable editMode = false;
   @observable submitting = false;
   @observable target = "";
 
@@ -75,7 +74,7 @@ class ActivityStore {
       runInAction("create activity", () => {
         this.activityRegistry.set(activity.id, activity);
         this.activity = activity;
-        this.editMode = false;
+        // this.editMode = false;
         this.submitting = false;
       });
     } catch (error) {
@@ -93,7 +92,7 @@ class ActivityStore {
       runInAction("edit activity", () => {
         this.activityRegistry.set(activity.id, activity);
         this.activity = activity;
-        this.editMode = false;
+        // this.editMode = false;
         this.submitting = false;
       });
     } catch (error) {
@@ -127,18 +126,18 @@ class ActivityStore {
   };
 
   @action openCreateForm = () => {
-    this.editMode = true;
+    // this.editMode = true;
     this.activity = null;
   };
 
   @action selectActivity = (id: string) => {
     this.activity = this.activityRegistry.get(id);
-    this.editMode = false;
+    // this.editMode = false;
   };
 
   @action openEditForm = (id: string) => {
     this.activity = this.activityRegistry.get(id);
-    this.editMode = true;
+    // this.editMode = true;
   };
 
   @action cancelActivity = () => {
@@ -146,7 +145,7 @@ class ActivityStore {
   };
 
   @action cancelFormOpen = () => {
-    this.editMode = false;
+    // this.editMode = fals
   };
 
   @action clearActivity = () => {
