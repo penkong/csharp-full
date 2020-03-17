@@ -1,37 +1,59 @@
-import React, { useState, FormEvent, useContext } from "react";
+import React, { useState, FormEvent, useContext, useEffect } from "react";
 import { Segment, Form, Button } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 import { v4 as uuid } from "uuid";
 import ActivityStore from "../../../app/stores/activityStore";
+import { RouteComponentProps } from "react-router";
 interface IProps {
-  activity: IActivity | undefined;
+  // activity: IActivity | undefined;
 }
 
-const ActivityForm: React.FC<IProps> = ({ activity: initialFormState }) => {
+interface DetailParams {
+  id: string;
+}
+
+const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
+  match,
+  history
+}) => {
   //
+
+  const [activity, setActivity] = useState<IActivity>({
+    id: "",
+    title: "",
+    category: "",
+    description: "",
+    date: "",
+    city: "",
+    venue: ""
+  });
+
   const {
+    activity: initialFormState,
+    loadActivitiy,
     createActivity,
     editActivity,
     submitting,
+    clearActivity,
     cancelFormOpen
   } = useContext(ActivityStore);
-  const initailizeForm = () => {
-    if (initialFormState) {
-      return initialFormState;
-    } else {
-      return {
-        id: "",
-        title: "",
-        category: "",
-        description: "",
-        date: "",
-        city: "",
-        venue: ""
-      };
-    }
-  };
 
-  const [activity, setActivity] = useState<IActivity>(initailizeForm);
+  useEffect(() => {
+    if (match.params.id && !activity.id.length) {
+      loadActivitiy(match.params.id).then(
+        () => initialFormState && setActivity(initialFormState)
+      );
+    }
+    return () => {
+      clearActivity();
+    };
+  }, [
+    loadActivitiy,
+    clearActivity,
+    match.params.id,
+    initialFormState,
+    activity.id.length
+  ]);
 
   const handleInputChange = (
     event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,9 +69,13 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState }) => {
         ...activity,
         id: uuid()
       };
-      createActivity(newActivity);
+      createActivity(newActivity).then(() =>
+        history.push(`/activities/${newActivity.id}`)
+      );
     } else {
-      editActivity(activity);
+      editActivity(activity).then(() =>
+        history.push(`/activities/${activity.id}`)
+      );
     }
   };
 
