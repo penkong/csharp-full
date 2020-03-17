@@ -13,11 +13,36 @@ class ActivityStore {
   @observable submitting = false;
   @observable target = "";
 
+  // helper fucntion ======================================================================
+
+  getActivity = (id: string) => {
+    return this.activityRegistry.get(id);
+  };
+
+  groupActivitiesByDate(activities: IActivity[]) {
+    const sortedAcitivites = activities.sort(
+      (a, b) => Date.parse(a.date) - Date.parse(b.date)
+    );
+
+    const reduced = sortedAcitivites.reduce((activities, activity) => {
+      const date = activity.date.split("T")[0];
+      activities[date] = activities[date]
+        ? [...activities[date], activity]
+        : [activity];
+      return activities;
+    }, {} as { [key: string]: IActivity[] });
+
+    // object.entries return arr of [[key ,value], [key ,value] , ...]
+    return Object.entries(reduced);
+  }
+
+  // ===========================================================================
+
   // we use computed when we already have data in store
   // ans we use it like observable.
   @computed get activitiesByDate() {
-    return Array.from(this.activityRegistry.values()).sort(
-      (a, b) => Date.parse(a.date) - Date.parse(b.date)
+    return this.groupActivitiesByDate(
+      Array.from(this.activityRegistry.values())
     );
   }
 
@@ -40,10 +65,6 @@ class ActivityStore {
       });
       console.log(error.message);
     }
-  };
-
-  getActivity = (id: string) => {
-    return this.activityRegistry.get(id);
   };
 
   @action loadActivitiy = async (id: string) => {
