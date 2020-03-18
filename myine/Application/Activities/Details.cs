@@ -1,6 +1,8 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using Domain;
 using MediatR;
 using Persistence;
@@ -26,7 +28,10 @@ namespace Application.Activities
             // cancellation Token help aborted request or buggy request clean from server to not consume more pawer
             public async Task<Activity> Handle(Query request, CancellationToken cancellationToken)
             {
+
                 Domain.Activity activity = await _context.Activites.FindAsync(request.Id);
+                if(activity == null) throw new RestException(HttpStatusCode.NotFound, new { activity = "Not Found!" });
+
                 return activity;
             }
         }

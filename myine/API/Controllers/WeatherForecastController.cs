@@ -56,7 +56,8 @@ namespace API.Controllers {
 			//     .ToArray ();
 			// toListAsync and many other come from ef;
 			var values = await _context.Values.ToListAsync ();
-			return Ok (values);
+			if(values == null) return NotFound();
+            return Ok (values);
 		}
 
 		[HttpGet ("{id:int}")]

@@ -16,7 +16,8 @@ interface DetailParams {
 
 // some where in this we need inform it from id type
 const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({
-  match
+  match,
+  history
 }) => {
   const { activity, loadActivitiy, loadingInitial } = useContext(ActivityStore);
 
@@ -24,8 +25,9 @@ const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({
     loadActivitiy(match.params.id);
   }, [loadActivitiy, match.params.id]);
 
-  if (loadingInitial || !activity)
-    return <Loading content="Loading Activity ..." />;
+  if (loadingInitial) return <Loading content="Loading Activity ..." />;
+
+  if (!activity) return <h2>activity not found</h2>;
 
   return (
     <Grid>
@@ -40,20 +42,7 @@ const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({
     </Grid>
   );
 };
-// <Card fluid>
-//   <Image
-//     src={`/assets/categoryImages/${activity!.category}.jpg`}
-//     wrapped
-//     ui={false}
-//   />
-//   <Card.Content>
-//     <Card.Header>{activity!.title}</Card.Header>
-//     <Card.Meta>
-//       <span>{activity!.date}</span>
-//     </Card.Meta>
-//     <Card.Description>{activity!.description}</Card.Description>
-//   </Card.Content>
-//   <Card.Content extra>
+
 //     <Button.Group widths={2}>
 //       <Button
 //         as={Link}
@@ -68,8 +57,5 @@ const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({
 //         color="grey"
 //         content="cancel"
 //       />
-//     </Button.Group>
-//   </Card.Content>
-// </Card>
 
 export default observer(ActivityDetails);

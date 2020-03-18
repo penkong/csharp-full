@@ -87,3 +87,8 @@ C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.
 C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\MediatR.dll
 C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\code\netReact\myine\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cs
+C:\code\netReact\myine\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
