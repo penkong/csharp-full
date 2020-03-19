@@ -3,6 +3,7 @@ import { createContext, SyntheticEvent } from "react";
 import { IActivity } from "../models/activity";
 import agent from "../api/agent";
 import { history } from "./../../index";
+import { toast } from "react-toastify";
 
 // strict mode
 configure({ enforceActions: "always" });
@@ -80,6 +81,7 @@ class ActivityStore {
         activity = await agent.Activities.details(id);
         runInAction("getting an activity", () => {
           activity.date = new Date(activity.date);
+          this.activityRegistry.set(activity.id, activity);
           this.activity = activity;
           this.loadingInitial = false;
         });
@@ -99,15 +101,20 @@ class ActivityStore {
     try {
       //
       await agent.Activities.create(activity);
+
       runInAction("create activity", () => {
         this.activityRegistry.set(activity.id, activity);
-        // this.activity = activity;
+        this.activity = activity;
         // this.editMode = false;
         this.submitting = false;
       });
+
       history.push(`/activities/${activity.id}`);
+      //
     } catch (error) {
-      console.log(error);
+      //
+      console.log(error.response);
+      toast.error("Problem submitting data!");
       runInAction("create activity error", () => {
         this.submitting = false;
       });
@@ -121,14 +128,14 @@ class ActivityStore {
       runInAction("edit activity", () => {
         this.activityRegistry.set(activity.id, activity);
         this.activity = activity;
-        // this.editMode = false;
         this.submitting = false;
       });
+      history.push(`/activities/${activity.id}`);
     } catch (error) {
       runInAction("delete activity error", () => {
         this.submitting = false;
       });
-      console.log(error);
+      console.log(error.response);
     }
   };
 

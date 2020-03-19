@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\netReact\\myine\\API\\API.csproj": {}
+    "C:\\code\\netReact\\myine\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\code\\netReact\\myine\\API\\API.csproj": {
+    "C:\\code\\netReact\\myine\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\API\\API.csproj",
+        "projectUniqueName": "C:\\code\\netReact\\myine\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\code\\netReact\\myine\\API\\API.csproj",
+        "projectPath": "C:\\code\\netReact\\myine\\api\\API.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\API\\obj\\",
+        "outputPath": "C:\\code\\netReact\\myine\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
