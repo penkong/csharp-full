@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {}
+    "c:\\code\\netReact\\myine\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+    "c:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
+        "projectPath": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\Domain\\obj\\",
+        "outputPath": "c:\\code\\netReact\\myine\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {}
+    "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+    "c:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
+        "projectPath": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\Domain\\obj\\",
+        "outputPath": "c:\\code\\netReact\\myine\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -64,14 +68,14 @@
         }
       }
     },
-    "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
+    "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
+        "projectPath": "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\Persistence\\obj\\",
+        "outputPath": "c:\\code\\netReact\\myine\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -92,8 +96,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj"
+              "c:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj"
               }
             }
           }
@@ -109,11 +113,11 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[2.2.4, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[2.2.4, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",

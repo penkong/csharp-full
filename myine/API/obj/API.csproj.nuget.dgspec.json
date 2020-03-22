@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\netReact\\myine\\api\\API.csproj": {}
+    "c:\\code\\netReact\\myine\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\code\\netReact\\myine\\api\\API.csproj": {
+    "c:\\code\\netReact\\myine\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\api\\API.csproj",
+        "projectUniqueName": "c:\\code\\netReact\\myine\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\code\\netReact\\myine\\api\\API.csproj",
+        "projectPath": "c:\\code\\netReact\\myine\\API\\API.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\api\\obj\\",
+        "outputPath": "c:\\code\\netReact\\myine\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -23,20 +23,20 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "netcoreapp2.2"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\code\\netReact\\myine\\Application\\Application.csproj": {
-                "projectPath": "C:\\code\\netReact\\myine\\Application\\Application.csproj"
+              "c:\\code\\netReact\\myine\\Application\\Application.csproj": {
+                "projectPath": "c:\\code\\netReact\\myine\\Application\\Application.csproj"
               },
-              "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj"
+              "c:\\code\\netReact\\myine\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "c:\\code\\netReact\\myine\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -48,15 +48,22 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "netcoreapp2.2": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
+            "Microsoft.AspNetCore.App": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[2.2.0, )"
             },
-            "Newtonsoft.Json": {
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             }
           },
           "imports": [
@@ -69,26 +76,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\code\\netReact\\myine\\Application\\Application.csproj": {
+    "c:\\code\\netReact\\myine\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\Application\\Application.csproj",
+        "projectUniqueName": "c:\\code\\netReact\\myine\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\code\\netReact\\myine\\Application\\Application.csproj",
+        "projectPath": "c:\\code\\netReact\\myine\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\Application\\obj\\",
+        "outputPath": "c:\\code\\netReact\\myine\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -109,11 +108,11 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj"
+              "c:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj"
               },
-              "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj"
+              "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
+                "projectPath": "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -129,11 +128,11 @@
           "dependencies": {
             "FluentValidation.AspNetCore": {
               "target": "Package",
-              "version": "[8.6.2, )"
+              "version": "[8.4.0, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -156,14 +155,14 @@
         }
       }
     },
-    "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+    "c:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj",
+        "projectPath": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\Domain\\obj\\",
+        "outputPath": "c:\\code\\netReact\\myine\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -195,6 +194,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -216,14 +219,14 @@
         }
       }
     },
-    "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
+    "c:\\code\\netReact\\myine\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
-        "projectName": "Persistence",
-        "projectPath": "C:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "c:\\code\\netReact\\myine\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "c:\\code\\netReact\\myine\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\netReact\\myine\\Persistence\\obj\\",
+        "outputPath": "c:\\code\\netReact\\myine\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -244,8 +247,76 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\code\\netReact\\myine\\Domain\\Domain.csproj"
+              "c:\\code\\netReact\\myine\\Application\\Application.csproj": {
+                "projectPath": "c:\\code\\netReact\\myine\\Application\\Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "c:\\code\\netReact\\myine\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\mkz\\.nuget\\packages\\",
+        "outputPath": "c:\\code\\netReact\\myine\\Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mkz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "c:\\code\\netReact\\myine\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\code\\netReact\\myine\\Domain\\Domain.csproj"
               }
             }
           }
@@ -261,11 +332,11 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[2.2.4, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[2.2.4, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",

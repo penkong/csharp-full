@@ -1,53 +1,46 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using Application.Activities;
 using Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers {
-    [Route ("api/[controller]")]
-    // ApiController binding it fix frombody or from route and many other things auto.
-    // auto give us 400 error;
-    [ApiController]
-
-    // ControllerBase does not support view
-    // Controller does support view
-    public class ActivitiesController : ControllerBase {
-        private readonly IMediator _mediator;
-        public ActivitiesController (IMediator mediator) {
-            _mediator = mediator;
-        }
-
-        // use cancellationToken for abort request to let server know stop process.
+namespace API.Controllers
+{
+    public class ActivitiesController : BaseController
+    {
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> List (CancellationToken ct) {
-            return await _mediator.Send (new List.Query (), ct);
-            // mediator go and get data need to response.
+        public async Task<ActionResult<List<Activity>>> List()
+        {
+            return await Mediator.Send(new List.Query());
         }
 
-        [HttpGet ("{id}")]
-        public async Task<ActionResult<Activity>> Details ([FromRoute] Guid id) {
-            var item = await _mediator.Send (new Details.Query { Id = id });
-            return item;
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<ActionResult<Activity>> Details(Guid id)
+        {
+            return await Mediator.Send(new Details.Query{Id = id});
         }
 
         [HttpPost]
-        public async Task<ActionResult<Unit>> Create ([FromBody] Create.Command command) {
-            return await _mediator.Send (command);
+        public async Task<ActionResult<Unit>> Create(Create.Command command)
+        {
+            return await Mediator.Send(command);
         }
 
-        [HttpPut ("{id}")]
-        public async Task<ActionResult<Unit>> Edit (Guid id, Edit.Command command) {
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
+        {
             command.Id = id;
-            return await _mediator.Send (command);
+            return await Mediator.Send(command);
         }
 
-        [HttpDelete ("{id}")]
-        public async Task<ActionResult<Unit>> Delete (Guid id) {
-            return await _mediator.Send (new Delete.Command { Id = id });
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> Delete(Guid id)
+        {
+            return await Mediator.Send(new Delete.Command{Id = id});
         }
     }
 }

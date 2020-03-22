@@ -1,10 +1,7 @@
-﻿using System;
-namespace Domain
+﻿namespace Domain
 {
     public class Value
     {
-        // auto implememnt props.
-        // auto use primarykey and auto increment.
         public int Id { get; set; }
         public string Name { get; set; }
     }

@@ -18,11 +18,12 @@ namespace API.Middleware
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context) {
+        public async Task Invoke(HttpContext context)
+        {
             try
             {
                 await _next(context);
-            }
+            } 
             catch (Exception ex)
             {
                 await HandleExceptionAsync(context, ex, _logger);
@@ -35,24 +36,22 @@ namespace API.Middleware
 
             switch (ex)
             {
-                // send 4xx
                 case RestException re:
                     logger.LogError(ex, "REST ERROR");
                     errors = re.Errors;
                     context.Response.StatusCode = (int)re.Code;
                     break;
-                // send 5xx
                 case Exception e:
                     logger.LogError(ex, "SERVER ERROR");
                     errors = string.IsNullOrWhiteSpace(e.Message) ? "Error" : e.Message;
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     break;
-                
             }
 
             context.Response.ContentType = "application/json";
-            if(errors != null) {
-                var result = JsonConvert.SerializeObject(new
+            if (errors != null)
+            {
+                var result = JsonConvert.SerializeObject(new 
                 {
                     errors
                 });

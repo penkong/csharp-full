@@ -1,77 +1,99 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Text;
 using API.Middleware;
 using Application.Activities;
+using Application.Interfaces;
+using Domain;
 using FluentValidation.AspNetCore;
+using Infrastructure.Security;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Persistence;
 
-namespace API {
-
-    public class Startup {
-
-        public IConfiguration Configuration { get; }
-
-        public Startup (IConfiguration configuration) {
+namespace API
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
             Configuration = configuration;
         }
 
-        // is our dependency injection container (the way utilize other classes in other part of our app)
-        // and anything we add to services will be available in other part of our app.
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // 
-        public void ConfigureServices (IServiceCollection services) {
+        public IConfiguration Configuration { get; }
 
-            services.AddDbContext<DataContext> (opt => {
-                //. option action
-                opt.UseSqlite (Configuration.GetConnectionString ("DefaultConnection"));
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
-            services.AddCors (opt => {
-                // create specific cors policy here.
-                // name it  and policy config
-                opt.AddPolicy ("CorsPolicy", policy => {
-                    policy.AllowAnyHeader ().AllowAnyMethod ().WithOrigins ("http://localhost:3000");
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
                 });
-                // after this we need to add  to configure as middleware
             });
-            // we have lots of Handler but we need to tell it one
             services.AddMediatR(typeof(List.Handler).Assembly);
-            services.AddControllers ().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>());
+            services.AddMvc(opt =>
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
+            })
+                .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>())
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            var builder = services.AddIdentityCore<AppUser>();
+            var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+            identityBuilder.AddEntityFrameworkStores<DataContext>();
+            identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(opt =>
+                {
+                    opt.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = key,
+                        ValidateAudience = false,
+                        ValidateIssuer = false
+                    };
+                });
+
+            services.AddScoped<IJwtGenerator, JwtGenerator>();
+            services.AddScoped<IUserAccessor, UserAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
             app.UseMiddleware<ErrorHandlingMiddleware>();
-            if (env.IsDevelopment ()) {
-                // app.UseDeveloperExceptionPage ();
-            } else {
-                // app.UseExceptionHandler("/Error");
-                // add middleware add transport security
-                //  web server declare browser must be use https 
+
+            if (env.IsDevelopment())
+            {
+                // app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 // app.UseHsts();
             }
 
             // app.UseHttpsRedirection();
-            app.UseCors ("CorsPolicy");
-            app.UseRouting ();
-
-            app.UseAuthorization ();
-
-            app.UseEndpoints (endpoints => {
-                endpoints.MapControllers ();
-            });
+            app.UseAuthentication();
+            app.UseCors("CorsPolicy");
+            app.UseMvc();
         }
     }
 }

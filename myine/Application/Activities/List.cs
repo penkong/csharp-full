@@ -10,12 +10,8 @@ namespace Application.Activities
 {
     public class List
     {
-
-        // query class, irequest is mediator interface
         public class Query : IRequest<List<Activity>> { }
 
-
-        // IRequestHandler take query return acitiviy and need implelment.
         public class Handler : IRequestHandler<Query, List<Activity>>
         {
             private readonly DataContext _context;
@@ -24,14 +20,12 @@ namespace Application.Activities
                 _context = context;
             }
 
-            // any props added to query class will be available
-            // in Handler we need access to datacontext
             public async Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var activites = await _context.Activites.ToListAsync(cancellationToken);
-                return activites;
+                var activities = await _context.Activities.ToListAsync();
+
+                return activities;
             }
         }
-
     }
 }
